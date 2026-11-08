@@ -196,7 +196,7 @@ The hook fails open: if goodhart itself crashes, the tool call goes through and 
 
 ## Limitations
 
-- **It is a heuristic linter, not a proof.** An agent can still hard-code `if (input === 5) return 10` in the implementation, which is a different problem and needs code review. goodhart covers the test side.
+- **It is a heuristic linter, not a proof.** An agent can still hard-code `if (input === 5) return 10` in the implementation. That is the other half of the problem, and its sibling [overfit](https://github.com/karamage/overfit) catches it. goodhart covers the test side.
 - **Shell writes are only partly visible.** The hook sees `rm`, `mv`, `sed -i`, `>` and `tee` on test files and flags them, but `python -c "open('a.test.ts','w')..."` is opaque. The GitHub Action catches the final diff regardless of how it was produced.
 - **Single-line patterns.** A skip split across lines in an unusual way can slip through. If you find one, please [open an issue](https://github.com/karamage/goodhart/issues/new?template=missed-cheat.md); false positives are [welcome too](https://github.com/karamage/goodhart/issues/new?template=false-positive.md).
 - It is a guardrail for well-meaning automation, not a security boundary against a determined human.

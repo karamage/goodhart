@@ -196,7 +196,7 @@ goodhart 自体が落ちた場合は、ツール呼び出しをそのまま通�
 
 ## 限界
 
-- **ヒューリスティックなリンターであり、証明ではありません。** 実装側に `if (input === 5) return 10` と書く不正は別の問題で、コードレビューが必要です。goodhart が扱うのはテスト側です。
+- **ヒューリスティックなリンターであり、証明ではありません。** 実装側に `if (input === 5) return 10` と書く不正は問題のもう半分で、兄弟プロジェクトの [overfit](https://github.com/karamage/overfit) が検出します。goodhart が扱うのはテスト側です。
 - **シェル経由の書き込みは一部しか見えません。** フックはテストファイルに対する `rm`、`mv`、`sed -i`、`>`、`tee` を検出しますが、`python -c "open('a.test.ts','w')..."` の中身は分かりません。GitHub Action は、どう作られたかに関係なく最終的な差分を検査します。
 - **1 行単位のパターンです。** 珍しい書き方で複数行にまたがる skip は見逃すことがあります。見つけたら [Issue](https://github.com/karamage/goodhart/issues/new?template=missed-cheat.md) で教えてください。誤検知の報告も[歓迎します](https://github.com/karamage/goodhart/issues/new?template=false-positive.md)。
 - 善意の自動化に対するガードレールであり、本気で抜け道を探す人間に対するセキュリティ境界ではありません。
