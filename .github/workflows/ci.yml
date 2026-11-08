@@ -38,3 +38,23 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./
+
+  action-e2e:
+    # Runs the published action against a commit that skips a test and
+    # expects it to fail the job.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commit a tampered test
+        run: |
+          git config user.email ci@example.com && git config user.name ci
+          mkdir -p e2e
+          printf "it.skip('adds', () => {\n  expect(1 + 1).toBe(2);\n});\n" > e2e/add.test.js
+          git add e2e && git commit -q -m "skip a test"
+      - id: goodhart
+        uses: ./
+        with:
+          base: HEAD~1
+        continue-on-error: true
+      - name: The action must have failed
+        run: test "${{ steps.goodhart.outcome }}" = "failure"
