@@ -90,8 +90,8 @@ export function evaluateHook(input) {
     if (typeof ti.file_path !== 'string') return null;
     let abs = resolve(cwd, ti.file_path);
     // Resolve symlinks (e.g. macOS /var -> /private/var) so the path lines up with git's root.
-    if (existsSync(dirname(abs))) abs = join(realpathSync(dirname(abs)), basename(abs));
-    root = repoRoot(existsSync(dirname(abs)) ? dirname(abs) : cwd) ?? realpathSync(cwd);
+    if (existsSync(dirname(abs))) abs = join(realpathSync.native(dirname(abs)), basename(abs));
+    root = repoRoot(existsSync(dirname(abs)) ? dirname(abs) : cwd) ?? realpathSync.native(cwd);
     const rel = relative(root, abs);
     const path = (rel.startsWith('..') || isAbsolute(rel) ? abs : rel).split(sep).join('/');
     const before = readIfFile(abs);
