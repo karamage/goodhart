@@ -1,0 +1,11 @@
+{
+  "name": "goodhart",
+  "displayName": "goodhart",
+  "version": "0.1.0",
+  "description": "Stops Claude from making tests pass by weakening them: blocks skipped tests, deleted assertions, neutered CI and git --no-verify, and asks you before expectations change.",
+  "author": { "name": "karamage", "url": "https://github.com/karamage" },
+  "homepage": "https://github.com/karamage/goodhart",
+  "repository": "https://github.com/karamage/goodhart",
+  "license": "MIT",
+  "keywords": ["testing", "reward-hacking", "guardrails", "hooks", "ci"]
+}

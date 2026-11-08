@@ -1,0 +1,17 @@
+{
+  "description": "goodhart: block edits and shell commands that make tests pass by weakening them",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/bin/goodhart.js\" hook",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

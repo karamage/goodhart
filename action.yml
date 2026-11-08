@@ -1,0 +1,48 @@
+name: goodhart
+description: Fail pull requests that make tests pass by weakening them (skipped tests, deleted assertions, neutered CI, lowered coverage).
+author: karamage
+branding:
+  icon: shield
+  color: red
+
+inputs:
+  base:
+    description: Git ref to compare against. Defaults to the pull request base branch, or the previous commit on push.
+    required: false
+    default: ''
+  fail-on:
+    description: Fail the job on "error" (default), "warn", or "never".
+    required: false
+    default: error
+
+runs:
+  using: composite
+  steps:
+    - name: Run goodhart
+      shell: bash
+      env:
+        INPUT_BASE: ${{ inputs.base }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        EVENT_BEFORE: ${{ github.event.before }}
+      run: |
+        set -euo pipefail
+        if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
+          git fetch --no-tags --quiet --unshallow origin || true
+        fi
+        base="$INPUT_BASE"
+        if [ -z "$base" ] && [ -n "${GITHUB_BASE_REF:-}" ]; then
+          git fetch --no-tags --quiet origin "+refs/heads/${GITHUB_BASE_REF}:refs/remotes/origin/${GITHUB_BASE_REF}"
+          base="origin/${GITHUB_BASE_REF}"
+        fi
+        if [ -z "$base" ] && [ -n "${EVENT_BEFORE:-}" ] && [ "$EVENT_BEFORE" != "0000000000000000000000000000000000000000" ]; then
+          base="$EVENT_BEFORE"
+        fi
+        if [ -z "$base" ]; then
+          base="HEAD~1"
+        fi
+        echo "goodhart: comparing HEAD with merge-base of ${base}"
+        node "${GITHUB_ACTION_PATH}/bin/goodhart.js" check \
+          --base "$base" \
+          --format github \
+          --summary "${GITHUB_STEP_SUMMARY}" \
+          --fail-on "$INPUT_FAIL_ON"

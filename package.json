@@ -1,0 +1,51 @@
+{
+  "name": "goodhart",
+  "version": "0.1.0",
+  "description": "Catch AI coding agents making tests pass by weakening them: skipped tests, deleted assertions, edited expectations, neutered CI. Claude Code hook, CLI and GitHub Action.",
+  "type": "module",
+  "bin": {
+    "goodhart": "bin/goodhart.js"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin",
+    "src",
+    "hooks",
+    ".claude-plugin",
+    "commands",
+    "action.yml"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node bin/goodhart.js check"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "keywords": [
+    "claude-code",
+    "claude-code-plugin",
+    "ai-agent",
+    "coding-agent",
+    "reward-hacking",
+    "testing",
+    "test-quality",
+    "lint",
+    "github-action",
+    "pre-commit",
+    "codex",
+    "cursor"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karamage/goodhart.git"
+  },
+  "homepage": "https://github.com/karamage/goodhart#readme",
+  "bugs": "https://github.com/karamage/goodhart/issues",
+  "author": "karamage",
+  "license": "MIT"
+}

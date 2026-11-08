@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1179" height="508" viewBox="0 0 1179 508" role="img" aria-label="goodhart check output">
+<rect width="1179" height="508" rx="10" fill="#1e1f29"/>
+<circle cx="22" cy="20" r="6" fill="#ff5f56"/><circle cx="42" cy="20" r="6" fill="#ffbd2e"/><circle cx="62" cy="20" r="6" fill="#27c93f"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#e6e6e6">
+<text x="20" y="62" xml:space="preserve"><tspan x="20.0" fill="#5af78e" font-weight="700">$ </tspan><tspan x="36.9" fill="#f1f1f0" font-weight="700">npx github:karamage/goodhart check</tspan></text>
+<text x="20" y="82" xml:space="preserve"></text>
+<text x="20" y="102" xml:space="preserve"><tspan x="20.0" fill="#57c7ff" font-weight="700">.github/workflows/ci.yml</tspan></text>
+<text x="20" y="122" xml:space="preserve"><tspan x="20.0">  </tspan><tspan x="36.9" fill-opacity="0.55">  10</tspan><tspan x="70.6">  </tspan><tspan x="87.4" fill="#ff6b6b">✗ error</tspan><tspan x="146.4">  Failure is now ignored: a failing step no longer fails the job. </tspan><tspan x="702.8" fill-opacity="0.55">ci-neutered</tspan></text>
+<text x="20" y="142" xml:space="preserve"><tspan x="20.0">              </tspan><tspan x="138.0" fill-opacity="0.55">│</tspan><tspan x="146.4"> continue-on-error: true</tspan></text>
+<text x="20" y="162" xml:space="preserve"></text>
+<text x="20" y="182" xml:space="preserve"><tspan x="20.0" fill="#57c7ff" font-weight="700">src/cart.test.ts</tspan></text>
+<text x="20" y="202" xml:space="preserve"><tspan x="20.0">  </tspan><tspan x="36.9" fill-opacity="0.55">   6</tspan><tspan x="70.6">  </tspan><tspan x="87.4" fill="#f3f99d">! warn </tspan><tspan x="146.4">  Expected value changed. Make sure the code was wrong-by-design, not the test bent to fit the code. </tspan><tspan x="997.9" fill-opacity="0.55">expectation-changed</tspan></text>
+<text x="20" y="222" xml:space="preserve"><tspan x="20.0">              </tspan><tspan x="138.0" fill-opacity="0.55">│</tspan><tspan x="146.4"> - expect(total([{ price: 300, qty: 2 }, { price: 150, qty: 1 }])).toBe(750);</tspan></text>
+<text x="20" y="242" xml:space="preserve"><tspan x="20.0">              </tspan><tspan x="138.0" fill-opacity="0.55">│</tspan><tspan x="146.4"> + expect(total([{ price: 300, qty: 2 }, { price: 150, qty: 1 }])).toBe(600);</tspan></text>
+<text x="20" y="262" xml:space="preserve"><tspan x="20.0">  </tspan><tspan x="36.9" fill-opacity="0.55">   9</tspan><tspan x="70.6">  </tspan><tspan x="87.4" fill="#ff6b6b">✗ error</tspan><tspan x="146.4">  Test skipped/disabled. A skipped test always "passes". </tspan><tspan x="627.0" fill-opacity="0.55">test-skipped</tspan></text>
+<text x="20" y="282" xml:space="preserve"><tspan x="20.0">              </tspan><tspan x="138.0" fill-opacity="0.55">│</tspan><tspan x="146.4"> it.skip('applies a 10% coupon', () =&gt; {</tspan></text>
+<text x="20" y="302" xml:space="preserve"><tspan x="20.0">  </tspan><tspan x="36.9" fill-opacity="0.55">  14</tspan><tspan x="70.6">  </tspan><tspan x="87.4" fill="#f3f99d">! warn </tspan><tspan x="146.4">  Assertion weakened: it now accepts many wrong results. </tspan><tspan x="627.0" fill-opacity="0.55">matcher-weakened</tspan></text>
+<text x="20" y="322" xml:space="preserve"><tspan x="20.0">              </tspan><tspan x="138.0" fill-opacity="0.55">│</tspan><tspan x="146.4"> - expect(() =&gt; applyCoupon(1000, 'OLD')).toThrow('coupon expired');</tspan></text>
+<text x="20" y="342" xml:space="preserve"><tspan x="20.0">              </tspan><tspan x="138.0" fill-opacity="0.55">│</tspan><tspan x="146.4"> + expect(() =&gt; applyCoupon(1000, 'OLD')).toThrow();</tspan></text>
+<text x="20" y="362" xml:space="preserve"></text>
+<text x="20" y="382" xml:space="preserve"><tspan x="20.0" fill="#57c7ff" font-weight="700">vitest.config.ts</tspan></text>
+<text x="20" y="402" xml:space="preserve"><tspan x="20.0">  </tspan><tspan x="36.9" fill-opacity="0.55">   3</tspan><tspan x="70.6">  </tspan><tspan x="87.4" fill="#ff6b6b">✗ error</tspan><tspan x="146.4">  Coverage threshold "lines" lowered from 90 to 40. </tspan><tspan x="584.8" fill-opacity="0.55">coverage-lowered</tspan></text>
+<text x="20" y="422" xml:space="preserve"><tspan x="20.0">              </tspan><tspan x="138.0" fill-opacity="0.55">│</tspan><tspan x="146.4"> - coverage: { thresholds: { lines: 90 } },</tspan></text>
+<text x="20" y="442" xml:space="preserve"><tspan x="20.0">              </tspan><tspan x="138.0" fill-opacity="0.55">│</tspan><tspan x="146.4"> + coverage: { thresholds: { lines: 40 } },</tspan></text>
+<text x="20" y="462" xml:space="preserve"></text>
+<text x="20" y="482" xml:space="preserve"><tspan x="20.0">goodhart: </tspan><tspan x="104.3" fill="#ff6b6b">3 errors</tspan><tspan x="171.7">, </tspan><tspan x="188.6" fill="#f3f99d">2 warnings</tspan><tspan x="272.9"> in 3 changed files (working tree vs HEAD).</tspan></text>
+</g>
+</svg>

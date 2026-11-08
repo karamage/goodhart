@@ -1,0 +1,11 @@
+{
+  "name": "goodhart",
+  "owner": { "name": "karamage", "url": "https://github.com/karamage" },
+  "plugins": [
+    {
+      "name": "goodhart",
+      "source": "./",
+      "description": "Stops Claude from making tests pass by weakening them."
+    }
+  ]
+}
